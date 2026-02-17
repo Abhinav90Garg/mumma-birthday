@@ -12,7 +12,7 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
     text-align: center;
     overflow-x: hidden;
@@ -24,7 +24,7 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: radial-gradient(circle at top, #1a1a2e, #000);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,52 +37,68 @@ body {
     font-size: 20px;
     border: none;
     border-radius: 30px;
-    background: white;
-    color: #ff4d6d;
+    background: linear-gradient(45deg, #ff4d6d, #ff758c);
+    color: white;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(255,77,109,0.6);
 }
 
-/* Hero */
+/* Glass Card */
 
-.hero {
-    padding: 30px 15px 10px;
+#mainContent {
+    display: none;
+    padding: 20px;
 }
+
+.card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    max-width: 420px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
+}
+
+/* Title */
 
 h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 42px;
+    margin: 10px 0;
+    text-shadow: 0 0 20px rgba(255,255,255,0.5);
 }
 
 /* Typing */
 
 .typing {
-    font-size: 22px;
-    margin-top: 10px;
-    min-height: 30px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    min-height: 28px;
+    color: #ffd1dc;
 }
 
 /* Photo */
 
 .photo img {
     width: 85%;
-    max-width: 320px;
+    max-width: 280px;
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(255,255,255,0.8);
-    animation: sparkle 2s infinite alternate;
+    box-shadow: 0 0 30px rgba(255,105,180,0.8);
+    animation: glow 2s infinite alternate;
 }
 
-@keyframes sparkle {
-    from { box-shadow: 0 0 15px rgba(255,255,255,0.5); }
-    to { box-shadow: 0 0 40px rgba(255,255,255,1); }
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(255,105,180,0.5); }
+    to { box-shadow: 0 0 45px rgba(255,105,180,1); }
 }
 
 /* Cake */
 
 .cake {
-    margin-top: 25px;
-    font-size: 60px;
+    font-size: 55px;
+    margin: 15px 0;
     animation: bounce 2s infinite;
 }
 
@@ -94,9 +110,9 @@ h1 {
 /* Message */
 
 .message {
-    padding: 20px;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
+    color: #f1f1f1;
 }
 
 /* Hearts */
@@ -133,48 +149,48 @@ h1 {
 
 <!-- Main Content -->
 
-<div id="mainContent" style="display:none;">
+<div id="mainContent">
 
-    <div class="hero">
+    <div class="card">
+
         <h1>Happy Birthday Mumma ❤️</h1>
         <div class="typing" id="typing"></div>
-    </div>
 
-    <div class="photo">
-        <img src="mumma.jpg" alt="Mumma">
-    </div>
+        <div class="photo">
+            <img src="mumma.jpg" alt="Mumma">
+        </div>
 
-    <div class="cake">🎂🕯️</div>
+        <div class="cake">🎂🕯️</div>
 
-    <div class="message">
-        Dear Mumma ❤️ <br><br>
+        <div class="message">
+            Dear Mumma ❤️ <br><br>
 
-        You are the most precious blessing in my life.
-        Your love, care, and sacrifices mean everything to me.
-        Whatever I am today is because of you.
-        <br><br>
-        I promise to always make you proud and happy.
-        <br><br>
-        Happy Birthday Mumma — I love you more than anything in this world 💕
+            You are the most precious blessing in my life.
+            Your love, care, and sacrifices mean everything to me.
+            Whatever I am today is because of you.
+            <br><br>
+            I promise to always make you proud and happy.
+            <br><br>
+            Happy Birthday Mumma — I love you more than anything 💕
+        </div>
+
     </div>
 
 </div>
 
 <script>
 
-/* Start Site */
+/* Start */
 
 function startSite() {
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("mainContent").style.display = "block";
 
-    let music = document.getElementById("music");
-    music.play();
-
+    document.getElementById("music").play();
     startTyping();
 }
 
-/* Typing Effect */
+/* Typing */
 
 const text = "I Love You Mumma ❤️";
 let index = 0;
@@ -188,7 +204,7 @@ function startTyping() {
     }, 100);
 }
 
-/* Floating Hearts */
+/* Hearts */
 
 function createHeart() {
     const heart = document.createElement("div");
